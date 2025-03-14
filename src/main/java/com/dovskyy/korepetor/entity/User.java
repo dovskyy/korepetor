@@ -1,5 +1,6 @@
 package com.dovskyy.korepetor.entity;
 
+import com.dovskyy.korepetor.enums.UserRole;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
@@ -46,6 +47,11 @@ public class User {
 
     @Size(min = 3, max = 20)
     private String phone;
+
+    @Enumerated(EnumType.STRING)
+    private UserRole role;
+
+    private boolean active = true;
 
     @CreationTimestamp
     private LocalDateTime createdAt;
